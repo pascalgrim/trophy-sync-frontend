@@ -45,7 +45,7 @@ export type Trophy = {
 export type TrophyS = {
   isEarned: boolean;
   earnedOn: string;
-  type: string;
+  type: "bronze" | "silver" | "gold" | "platinum";
   rarity: TrophyRarity;
   earnedRate: number;
   trophyName: string;

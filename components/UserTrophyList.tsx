@@ -3,11 +3,12 @@ import React from 'react'
 import GameCard from './ui/Cards/GameCard'
 
 type UserTrophyListProps = {
-    trophies: TrophyTitle[]
+    userID: string,
+    trophies: TrophyTitle[],
 }
-function UserTrophyList({ trophies }: UserTrophyListProps) {
+function UserTrophyList({ trophies, userID }: UserTrophyListProps) {
     return (
-        <div className='grid grid-cols-2'>{trophies.map((game) => <GameCard game={game} />)}</div>
+        <div className='flex flex-col px-12'>{trophies.map((game) => <GameCard game={game} key={game.trophyTitleName} userID={userID} />)}</div>
     )
 }
 

@@ -27,8 +27,8 @@ function GameTrophyList({ trophies }: GameTrophyListProps) {
 
   const sorted = sortByEarned()
   return (
-    <div className='grid grid-cols-4'>
-      {sorted.map((trophy: TrophyS) => <TrophyCard trophy={trophy} />)}
+    <div className='flex flex-col gap-4 px-12'>
+      {sorted.map((trophy: TrophyS) => <TrophyCard trophy={trophy} key={trophy.trophyName} />)}
     </div>
   )
 }

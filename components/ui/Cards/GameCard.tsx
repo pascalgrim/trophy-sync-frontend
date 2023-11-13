@@ -1,31 +1,43 @@
 "use client"
 
+import GameProgressBar from '@/components/GameProgressBar'
 import { TrophyTitle } from '@/types'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import TrophyProgress from '../TrophyProgress'
 
 type GameCardProps = {
-    game: TrophyTitle
+    game: TrophyTitle,
+    userID: string
 }
 
-function GameCard({ game }: GameCardProps) {
-
+function GameCard({ game, userID }: GameCardProps) {
     return (
-        <div className='border border-gray-800 h-24 p-4 w-full flex justify-between items-center'>
+        <Link href={`/${userID}/${game.npCommunicationId}?platform=${game.trophyTitlePlatform}&titleIconUrl=${game.trophyTitleIconUrl}&titleProgress=${game.progress}`} className='border-b-[1px] border-gray-800 hover:border-[1px] h-32 px-4 w-full flex justify-between items-center'>
             <div className='flex'>
                 <div className='w-16 items-center flex '>
-                    <img src={game.trophyTitleIconUrl} alt='' className=' w-full' />
+                    <Image src={game.trophyTitleIconUrl} alt='' width={90} height={90} />
                 </div>
-                <div className='ml-4 flex flex-col'>
-                    <h3 className='text-lg font-bold '>
+                <div className='ml-4 flex flex-col justify-center gap-2'>
+                    <h3 className='text-lg  '>
                         {game.trophyTitleName}
                     </h3>
-                    {game.progress} %
+                    <div className='border border-white w-fit px-2 py-1 text-xs'>
+                        {game.trophyTitlePlatform}
+                    </div>
+                </div>
+            </div>
+            {/* RIGHT */}
+            <div>
+                <div className='flex gap-2 items-center'>
+                    <GameProgressBar progress={game.progress} />
+                    <TrophyProgress earnedTrophies={game.earnedTrophies} />
                 </div>
             </div>
 
-            <Link href={`/game/${game.npCommunicationId}?platform=${game.trophyTitlePlatform}`} className='bg-white text-black py-2 px-4 rounded-lg text-sm font-bold'>Open</Link>
-        </div>
+
+        </Link>
     )
 }
 
