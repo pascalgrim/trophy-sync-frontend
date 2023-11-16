@@ -5,6 +5,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { calcNumbers } from './calculateNumbersOfTrophies'
+import ProfileName from '@/components/ProfileName'
 
 async function getTrophies(username: string) {
     const res = await axios.get("http://localhost:3001/trophies/user/" + username)
@@ -19,9 +20,8 @@ async function UserPage({
     const numbers = calcNumbers(trophies)
 
     return (
-        <div className='bg-black text-white px-12'>
-            <Header numbers={numbers} />
-
+        <div className='text-white px-12'>
+            <Header numbers={numbers} userId={params.userID} />
             <UserTrophyList trophies={trophies} userID={params.userID} />
         </div>
     )
@@ -31,12 +31,16 @@ export default UserPage
 
 type HeaderProps = {
     numbers: DefinedEarnedTrophies
+    userId: string,
 }
-export function Header({ numbers }: HeaderProps) {
+export function Header({ numbers, userId }: HeaderProps) {
     const iconSize = 54
     return (
         <div className='flex justify-between items-center h-36'>
-            <h1 className='text-3xl font-light'>Trophies</h1>
+            <div className='flex gap-4'>
+                <h1 className='text-3xl font-light'>Trophies</h1>
+                <ProfileName userId={userId} />
+            </div>
             <div className='flex gap-4'>
                 <div className='flex flex-col justify-end items-center font-light'>
                     <span>Total</span>

@@ -14,7 +14,8 @@ type GameCardProps = {
 
 function GameCard({ game, userID }: GameCardProps) {
     return (
-        <Link href={`/${userID}/${game.npCommunicationId}?platform=${game.trophyTitlePlatform}&titleIconUrl=${game.trophyTitleIconUrl}&titleProgress=${game.progress}`} className='border-b-[1px] border-gray-800 hover:border-[1px] h-32 px-4 w-full flex justify-between items-center'>
+        <Link href={`/${userID}/${game.npCommunicationId}?platform=${game.trophyTitlePlatform}&titleIconUrl=${game.trophyTitleIconUrl}&titleProgress=${game.progress}`}
+            className='border-[1px] border-transparent border-b-gray-900 hover:border-gray-900 h-32 px-4 w-full flex justify-between items-center'>
             <div className='flex'>
                 <div className='w-16 items-center flex '>
                     <Image src={game.trophyTitleIconUrl} alt='' width={90} height={90} />

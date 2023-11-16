@@ -1,5 +1,6 @@
 import GameProgressBar from '@/components/GameProgressBar'
 import GameTrophyList from '@/components/GameTrophyList'
+import ProfileName from '@/components/ProfileName'
 import TrophyImage from '@/components/TrophyImage'
 import TrophyCard from '@/components/ui/Cards/TrophyCard'
 import TrophyProgress from '@/components/ui/TrophyProgress'
@@ -22,8 +23,8 @@ async function DetailGamePage({ params, searchParams }: {
     const trophyTitle: TrophyTitleS = await res.json()
 
     return (
-        <div className='bg-black text-white  px-12 '>
-            <Header searchParams={searchParams} trophyTitle={trophyTitle} />
+        <div className=' text-white  px-12 '>
+            <Header searchParams={searchParams} trophyTitle={trophyTitle} userId={params.userID} />
             <GameTrophyList trophies={trophyTitle.trophyList} />
         </div>
     )
@@ -38,8 +39,9 @@ export default DetailGamePage
 type HeaderProps = {
     searchParams: any,
     trophyTitle: TrophyTitleS
+    userId: string
 }
-const Header = ({ searchParams, trophyTitle }: HeaderProps) => {
+const Header = ({ searchParams, trophyTitle, userId }: HeaderProps) => {
     return (<div className='flex justify-between items-cente h-36'>
         <div className='text-xl flex items-center gap-2'>
             <img src={searchParams.titleIconUrl} alt="" className='h-12' />
