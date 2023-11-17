@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
 import { useRouter } from 'next/navigation'
 import api from '@/helper/axios'
 import { Spinner } from "@nextui-org/react";
@@ -24,7 +24,6 @@ function UserIDInputForm() {
             }
 
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 400) {
                 toast({
                     title: "User not found",
@@ -35,7 +34,7 @@ function UserIDInputForm() {
                     title: "Error",
                     description: `An unexpected error happened. Try again later.`,
                 })
-                console.log(error)
+
             }
         }
         setIsLoading(false)

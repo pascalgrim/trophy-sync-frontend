@@ -1,6 +1,6 @@
 "use client"
 
-import GameProgressBar from '@/components/GameProgressBar'
+import GameProgressBar from '@/components/ui/GameProgressBar'
 import { TrophyTitle } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'

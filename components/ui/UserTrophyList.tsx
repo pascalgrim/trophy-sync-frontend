@@ -1,6 +1,6 @@
 import { TrophyTitle } from '@/types'
 import React from 'react'
-import GameCard from './ui/Cards/GameCard'
+import GameCard from './Cards/GameCard'
 
 type UserTrophyListProps = {
     userID: string,

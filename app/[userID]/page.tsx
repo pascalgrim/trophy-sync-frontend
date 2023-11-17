@@ -1,14 +1,14 @@
-import UserTrophyList from '@/components/UserTrophyList'
+import UserTrophyList from '@/components/ui/UserTrophyList'
 
 import { DefinedEarnedTrophies, TrophyTitle } from '@/types'
-import axios from 'axios'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import { calcNumbers } from './calculateNumbersOfTrophies'
-import ProfileName from '@/components/ProfileName'
+import { calcEarnedTrophies } from '../../helper/calculateEarnedTrophies'
+import ProfileName from '@/components/ui/ProfileName'
+import api from '@/helper/axios'
 
 async function getTrophies(username: string) {
-    const res = await axios.get("http://localhost:3001/trophies/user/" + username)
+    const res = await api.get("/trophies/user/" + username)
     const trophies: TrophyTitle[] = res.data
     return trophies
 }
@@ -17,7 +17,7 @@ async function UserPage({
     params
 }: { params: { userID: string } }) {
     const trophies = await getTrophies(params.userID)
-    const numbers = calcNumbers(trophies)
+    const numbers = calcEarnedTrophies(trophies)
 
     return (
         <div className='text-white px-12'>

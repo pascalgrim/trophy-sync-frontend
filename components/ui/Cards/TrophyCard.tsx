@@ -1,19 +1,24 @@
-import TrophyImage from '@/components/TrophyImage'
+
 import { capitalizeFirstLetter } from '@/helper/capitalizeFirstLetter'
 import { formatTimestamp } from '@/helper/formatTimestamp'
 import { cn } from '@/lib/utils'
 import { Trophy, TrophyS } from '@/types'
 import React from 'react'
+import TrophyImage from '../TrophyImage'
 
 
 type TrophyCardProps = {
     trophy: TrophyS
+    visible?: boolean
 }
-function TrophyCard({ trophy }: TrophyCardProps) {
+function TrophyCard({ trophy, visible = true }: TrophyCardProps) {
     const opacity = trophy.isEarned ? "opacity-100" : "opacity-30"
     const formattedDate = formatTimestamp(trophy.earnedOn)
+    if (!visible) {
+        return <></>
+    }
     return (
-        <div className={cn('border border-gray-800 flex items-center p-6 gap-4 justify-between h-36 rounded-lg', opacity)}>
+        <div className={cn('border border-gray-800 flex items-center p-6 gap-4 justify-between h-36 rounded-lg z-0', opacity)}>
             <div className='flex h-full'>
                 <img src={trophy.trophyIconUrl} alt="" className='h-full' />
                 <div className='pl-4 flex flex-col gap-1 text-gray-400'>
@@ -34,7 +39,7 @@ function TrophyCard({ trophy }: TrophyCardProps) {
                         <div className='w-[1px] h-full bg-gray-500' />
                     </>
                 }
-                <div className='w-2/3'>{trophy.detail} </div>
+                <div className='w-1/2'>{trophy.detail} </div>
             </div>
 
 

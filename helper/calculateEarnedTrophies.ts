@@ -1,6 +1,6 @@
 import { DefinedEarnedTrophies, TrophyTitle } from "@/types";
 
-export const calcNumbers = (trophies: TrophyTitle[]) => {
+export const calcEarnedTrophies = (trophies: TrophyTitle[]) => {
   let entries: DefinedEarnedTrophies = {
     bronze: 0,
     silver: 0,

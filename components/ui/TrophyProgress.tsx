@@ -1,7 +1,7 @@
 import { DefinedEarnedTrophies } from '@/types'
 import Image from 'next/image'
 import React from 'react'
-import TrophyImage from '../TrophyImage'
+import TrophyImage from './TrophyImage'
 
 type TrophyProgressProps = {
     earnedTrophies: DefinedEarnedTrophies,
