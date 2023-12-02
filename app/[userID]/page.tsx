@@ -33,7 +33,8 @@ type HeaderProps = {
     numbers: DefinedEarnedTrophies
     userId: string,
 }
-export function Header({ numbers, userId }: HeaderProps) {
+
+function Header({ numbers, userId }: HeaderProps) {
     const iconSize = 54
     return (
         <div className='flex justify-between items-center h-36'>
