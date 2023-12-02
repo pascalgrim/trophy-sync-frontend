@@ -22,7 +22,7 @@ function TrophyCard({ trophy, visible = true }: TrophyCardProps) {
             <div className='flex h-full'>
                 <img src={trophy.trophyIconUrl} alt="" className='h-full' />
                 <div className='pl-4 flex flex-col gap-1 text-gray-400'>
-                    <div className='text-xl font-bold text-primary-foreground'>{trophy.trophyName}</div>
+                    <div className='text-xl font-bold text-white'>{trophy.trophyName}</div>
                     <div className='flex gap-2 ' >
                         <TrophyImage type={trophy.type} size='small' />
                         <div>{capitalizeFirstLetter(trophy.type)}</div>
@@ -41,10 +41,6 @@ function TrophyCard({ trophy, visible = true }: TrophyCardProps) {
                 }
                 <div className='w-1/2'>{trophy.detail} </div>
             </div>
-
-
-
-
         </div>
     )
 }

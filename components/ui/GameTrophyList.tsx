@@ -47,10 +47,6 @@ function GameTrophyList({ trophies }: GameTrophyListProps) {
         setTrophyArray(sortByEarnedOn(trophyArray))
         break
       }
-      case "rarity": {
-        setTrophyArray(sortByRarity(trophyArray))
-        break;
-      }
 
       default:
         setTrophyArray(sortTrophiesByName(trophyArray))
@@ -59,7 +55,7 @@ function GameTrophyList({ trophies }: GameTrophyListProps) {
   }
   return (
     <div className='px-12 flex flex-col gap-4 '>
-      <div className='flex gap-2 justify-end'>
+      <div className='flex gap-2 justify-end py-4'>
         <Input placeholder='Trophy Name...' onChange={(e) => handleChange(e)} value={search} className='w-fit' />
         <Select onValueChange={(e) => handleFilterChange(e)}>
           <SelectTrigger className="w-[180px]">
@@ -68,7 +64,6 @@ function GameTrophyList({ trophies }: GameTrophyListProps) {
           <SelectContent>
             <SelectItem value="earnedOn" >Earned on</SelectItem>
             <SelectItem value="name">Name</SelectItem>
-            <SelectItem value="rarity">Rarity</SelectItem>
           </SelectContent>
         </Select>
         <Toggle onClick={() => setHideUnearned(!hideUnearned)} variant={"outline"} className='flex gap-2' >
