@@ -4,9 +4,9 @@ Trophy Sync is a Next.js application that allows you to search for PSN users and
 
 ## Screenshots
 
-![Game Titles Screenshot](screenshots/trophy_screen1.png)
+![Game Titles](./screenshots/trophy_screen_1.png)
 
-![Game Trophies Screenshot](screenshots/trophy_screen2.png)
+![Game Trophies](./screenshots/trophy_screen_2.png)
 
 ## Installation
 
