@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Trophy Sync
 
-## Getting Started
+Trophy Sync is a Next.js application that allows you to search for PSN users and display their PSN trophies.
 
-First, run the development server:
+## Screenshots
+
+![Game Titles Screenshot](screenshots/trophy_screen1.png)
+
+![Game Trophies Screenshot](screenshots/trophy_screen2.png)
+
+## Installation
+
+Before running Trophy Sync locally, make sure Node.js and npm are installed on your system.
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/trophy-sync.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Change to the directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd trophy-sync
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Create an .env file in the root of the project with the following content:
 
-## Learn More
+```makefile
+NEXT_PUBLIC_SERVER_URL = http://localhost:PORT/
+```
 
-To learn more about Next.js, take a look at the following resources:
+Make sure to run the [backend](https://github.com/pascalgrim/trophy-sync-backend) first and include the PORT here.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm install
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application is now available at http://localhost:3000.
