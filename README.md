@@ -1,4 +1,4 @@
-# Trophy Sync
+# Trophy Sync Frontend
 
 Trophy Sync is a Next.js application that allows you to search for PSN users and display their PSN trophies.
 
